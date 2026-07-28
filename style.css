@@ -1,7 +1,7 @@
 :root{
     --font-primaria: "Mona Sans", sans-serif;
     --color-black: #000000;
-    --color-black: #ffffff;
+    --color-white: #ffffff;
     --color-neutral-200: #e5e5e5;
     --color-neutral-300: #d4d4d4;
     --backdrop-color-50: #0000008d;
@@ -13,11 +13,37 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+
+    transition: all 1.5s ease-in;
+}
+
+html,
+body{
+    height: 100%;
 }
 
 body{
     background-color: var(--color-neutral-200);
     font-family: var(--font-primaria);
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.skip-link{
+    position: absolute;
+     top: -3.125rem; 
+    left: 10px;
+    background-color: var(--color-black);
+    color: var(--color-neutral-200);
+    padding: 0.625rem 1rem;
+    z-index: 1000;
+    border-radius: 1rem;
+}
+
+.skip-link:focus{
+    top: 0.65rem;
 }
 
 a{
@@ -79,7 +105,7 @@ a{
     
     position: absolute;
     top: 4rem;
-    left: 0rem;
+    left: 0em;
     width: 100%;
     padding: 1rem;
     display: flex;
@@ -94,4 +120,19 @@ a{
 
 .header nav ul li a{
     font-size: 1.25rem;
+}
+
+@media screen and (min-width: 800px){
+.header button{
+    display: none;
+}
+
+.header nav{
+    display: block;
+}
+
+.header nav ul{
+    flex-direction: row;
+}
+
 }
