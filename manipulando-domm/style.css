@@ -1,0 +1,192 @@
+:root {
+  --font-primaria: "Mona Sans", sans-serif;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --backdrop-color: #0000008d;
+
+  --color-focus: #4f46e5;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-neutral-200);
+  font-family: var(--font-primaria);
+}
+
+.skip-link {
+  position: absolute;
+  top: -3.125rem;
+  left: 0.625rem;
+  background-color: var(--color-black);
+  color: var(--color-neutral-200);
+  padding: 0.625rem 1rem;
+  z-index: 1000;
+  border-radius: 1rem;
+}
+
+.skip-link:focus {
+  top: 0.625rem;
+}
+
+/* classe para exibir o menu - será utilizada pelo JS */
+/* Refatorar com tailwind no JavaScript */
+header nav.nav-ativa {
+  display: flex;
+  flex-direction: column;
+
+  background: #000000e0;
+  backdrop-filter: blur(10px);
+  border: 0.125rem solid var(--color-neutral-300);
+  border-radius: 2rem;
+
+  position: absolute;
+  top: 4rem;
+  left: 0rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.header nav ul li a {
+  font-size: 1.25rem;
+}
+
+/* estilos todo-list, pokemon */
+
+.todo-card,
+.pokemon-card {
+  background: var(--backdrop-color);
+  backdrop-filter: blur(10px);
+  color: var(--color-neutral-200);
+
+  max-width: 40rem;
+  padding: 1rem;
+  margin: auto;
+
+  border-radius: 2rem;
+}
+
+.todo-card header,
+.pokemon-card header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.todo-card header h2,
+.pokemon-card header h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  /* clamp(valor minimo, valor preferido, valor máximo) */
+}
+
+.todo-card header p,
+.pokemon-card header p {
+  font-size: clamp(1rem, 5vw, 1.25rem);
+}
+
+.todo-form,
+.pokemon-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.todo-form button:hover,
+.pokemon-form button:hover {
+  background-color: var(--color-black);
+  color: var(--color-neutral-200);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: #000000cf;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.acoes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.concluir {
+  border: 1px solid #29a45c;
+  color: #29a45c;
+  background-color: #126c3857;
+}
+
+.remover {
+  border: 1px solid #951c1c;
+  color: #951c1c;
+  background-color: #6c121257;
+}
+
+.tarefa-concluida {
+  text-decoration: line-through;
+  color: #6a6a6a;
+}
+
+.remover:hover {
+  color: #c22323;
+  background-color: #6c121288;
+}
+
+/* pokemon resultado */
+.pokemon-resultado {
+  margin-top: 1rem;
+  border: 1px solid #fcfcfc60;
+  border-radius: 1.5rem;
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+
+  img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 1px solid #fcfcfc20;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+.erro {
+  color: #ea0909;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
