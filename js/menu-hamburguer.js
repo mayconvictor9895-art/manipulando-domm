@@ -1,38 +1,37 @@
-/*clicar no button
- 
- - mostrar o menu
- - alterar propriedades de acessibilidade 
- - trocar o icone do menu
+/*  clicar no button 
+
+- mostrar/esconder o menu
+- alterar propriedades de acessibilidade
+- trocar o ícone do menu
+
 */
 
-const btnMenu = document.getElementById("btn-menu")
-console.log(btnMenu)
-const navPrincipal = document.getElementById("navegacao-primaria")
-const icone = btnMenu.querySelector("i")
+const btnMenu = document.getElementById("btn-menu");
+const navPrincipal = document.getElementById("navegacao-primaria");
+const icone = btnMenu.querySelector("i");
 
-
-console.log(navPrincipal)
-// addeventlistener - serve para observar ações/eventos em elementos do HTML 
-// e executgar uma função quando esse evento acontece
+// addEventListener - serve para observar ações/eventos em elementos do HTML
+// e excutar uma função quando esse evento acontece
 // addEventListener(evento/ação, função)
-btnMenu.addEventListener("click", abrirMenu)
+btnMenu.addEventListener("click", abrirMenu);
 
-// toggle - adicione/remove a classe
-    function abrirMenu() {
-    //     navPrincipal.style.display = "block"
-    navPrincipal.classList.toggle("nav-ativa")
+function abrirMenu() {
+  // navPrincipal.style.display = "block"
 
-    // verifica se o menu está aberto. O metodo cointains, retorna verdadeiro ou falso
-    const menuAberto = navPrincipal.classList.contains("nav-ativa")
+  // toggle - adicione/remove a classe
+  navPrincipal.classList.toggle("nav-ativa");
 
-    // atualiza acessibilidade
-    btnMenu.setAttribute("aria-expanded", menuAberto)
+  // verifica se o menu está aberto. O método contains, retorna verdadeiro ou falso
+  const menuAberto = navPrincipal.classList.contains("nav-ativa");
 
-    if(menuAberto){
-        icone.classList.remove("fi-sr-menu-burger")
-        icone.classList.add("fi-sr-x")
-    } else{
-        icone.classList.remove("fi-sr-x")
-        icone.classList.add("fi-sr-menu-burger")
-    }
+  // Atualiza acessibilidade
+  btnMenu.setAttribute("aria-expanded", menuAberto);
+
+  if (menuAberto) {
+    icone.classList.remove("bi-list");
+    icone.classList.add("bi-x");
+  } else {
+    icone.classList.remove("bi-x");
+    icone.classList.add("bi-list");
+  }
 }
